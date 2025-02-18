@@ -1,43 +1,47 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>簡單網頁</title>
+    <title>孔位座標計算</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 50px;
+            margin: 20px;
         }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
+        .input-group {
+            margin-bottom: 10px;
+        }
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
         }
         textarea {
             width: 80%;
-            height: 200px;
+            height: 150px;
             margin-top: 10px;
-            font-size: 16px;
-        }
-        input {
-            width: 100px;
-            margin: 5px;
-            text-align: center;
         }
     </style>
 </head>
 <body>
-    <h1>歡迎來到我的網頁</h1>
+    <h1>孔位座標計算</h1>
     <p>請輸入參數：</p>
-    <label>孔數(A)：<input type="number" id="A" value="16"></label>
-    <label>圓半徑(B)：<input type="number" id="B" value="150"></label>
-    <label>起始角度(C)：<input type="number" id="C" value="0"></label>
-    <br>
-    <button onclick="generateHoles()">產生座標</button>
-    <button onclick="copyText()">一鍵複製</button>
-    <br>
+    <div class="input-group">
+        <label>孔數(A)：<input type="number" id="A" value="16"></label>
+    </div>
+    <div class="input-group">
+        <label>圓半徑(B)：<input type="number" id="B" value="150"></label>
+    </div>
+    <div class="input-group">
+        <label>起始角度(C)：<input type="number" id="C" value="0"></label>
+    </div>
+    <div class="button-group">
+        <button onclick="generateHoles()">產生座標</button>
+        <button onclick="copyText()">一鍵複製</button>
+    </div>
     <textarea id="message" readonly></textarea>
     
     <script>
@@ -51,9 +55,8 @@
                 let angle = C + (i * 360 / A);
                 let x = (B * Math.cos(angle * Math.PI / 180)).toFixed(3);
                 let y = (B * Math.sin(angle * Math.PI / 180)).toFixed(3);
-                result += `X${x}Y${y}\n`;
+                result += `X${x} Y${y}\n`;
             }
-            
             document.getElementById("message").value = result;
         }
         
