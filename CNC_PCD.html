@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>簡單網頁</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        textarea {
+            width: 80%;
+            height: 200px;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        input {
+            width: 100px;
+            margin: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>歡迎來到我的網頁</h1>
+    <p>請輸入參數：</p>
+    <label>孔數(A)：<input type="number" id="A" value="16"></label>
+    <label>圓半徑(B)：<input type="number" id="B" value="150"></label>
+    <label>起始角度(C)：<input type="number" id="C" value="0"></label>
+    <br>
+    <button onclick="generateHoles()">產生座標</button>
+    <button onclick="copyText()">一鍵複製</button>
+    <br>
+    <textarea id="message" readonly></textarea>
+    
+    <script>
+        function generateHoles() {
+            let A = parseInt(document.getElementById("A").value);
+            let B = parseFloat(document.getElementById("B").value);
+            let C = parseFloat(document.getElementById("C").value);
+            let result = "";
+            
+            for (let i = 0; i < A; i++) {
+                let angle = C + (i * 360 / A);
+                let x = (B * Math.cos(angle * Math.PI / 180)).toFixed(3);
+                let y = (B * Math.sin(angle * Math.PI / 180)).toFixed(3);
+                result += `X${x}Y${y}\n`;
+            }
+            
+            document.getElementById("message").value = result;
+        }
+        
+        function copyText() {
+            let textArea = document.getElementById("message");
+            textArea.select();
+            document.execCommand("copy");
+            alert("已複製到剪貼簿！");
+        }
+    </script>
+</body>
+</html>
