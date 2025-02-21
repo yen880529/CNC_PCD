@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
     <link rel="stylesheet" href="ui.css">
     <script src="CNC_PCD.js"></script>
     <title>孔位座標計算</title>
@@ -13,11 +15,11 @@
         <p>請輸入參數：</p>
         <div class="input-group">
             <label>孔數(A)：</label>
-            <input type="number" id="A" value="">
+            <input type="number" id="A">
         </div>
         <div class="input-group">
             <label>圓半徑(B)：</label>
-            <input type="number" id="B" value="">
+            <input type="number" id="B">
         </div>
         <div class="input-group">
             <label>起始角度(C)：</label>
@@ -28,6 +30,8 @@
             <button onclick="copyText()">一鍵複製</button>
         </div>
         <textarea id="message" readonly></textarea>
+        <canvas id="coordinateChart" width="400" height="400"></canvas>
     </div>
+    <script src="CNC_PCD.js"></script> <!-- 包含上述的 JS 程式碼 -->
 </body>
 </html>
