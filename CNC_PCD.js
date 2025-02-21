@@ -85,7 +85,7 @@ function initializeChart() {
                     fill: false,
                     lineTension: 0,
                     showLine: false,
-                    pointRadius: 5,
+                    pointRadius: 10,
                 },
                 {
                     label: 'PCD 圓弧',

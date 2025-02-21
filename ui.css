@@ -105,12 +105,15 @@ textarea {
     box-sizing: border-box;
     resize: both;
     overflow-y: auto; /* 讓textarea有滾動條 */
+    margin-top: 20px; /* 增加上間距 */
+    margin-bottom: 20px; /* 增加下間距 */
 }
 
 textarea:focus {
     background-color: #fff;
     border-color: #007bff;
 }
+
 
 /* 畫布區塊 */
 canvas {
