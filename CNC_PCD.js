@@ -157,10 +157,10 @@ function updateChart(chartData) {
     let yMin = Math.min(...chartData.map(p => p.y));
 
     // 設置坐標軸的範圍
-    chart.options.scales.x.max = B + 20;
-    chart.options.scales.y.max = B + 20;
-    chart.options.scales.x.min = -B - 20;
-    chart.options.scales.y.min = -B - 20;
+    chart.options.scales.x.max = B + 50;
+    chart.options.scales.y.max = B + 50;
+    chart.options.scales.x.min = -B - 50;
+    chart.options.scales.y.min = -B - 50;
 
     // 重新渲染圖表
     chart.update();
